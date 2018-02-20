@@ -1,5 +1,5 @@
 1. Change to new branch `thunks-exercise`.
- - If you get stuck use: `git checkout -b thunks origin/thunks`
+ - If you get stuck use: `git checkout -b thunks-finished origin/thunks-finished`
 2. Setup Redux Thunks
 
  - `npm install redux-thunk --save`
