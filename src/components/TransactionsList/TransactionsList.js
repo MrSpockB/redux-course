@@ -11,14 +11,15 @@ import {
 } from './TransactionsList.styled';
 import transactions from '../../actions/transactions';
 import prices from '../../actions/prices';
+import user from '../../actions/user';
 
 class TransactionsList extends React.Component {
   constructor(props) {
     super(props);
     // setInterval(function(){
     //   props.getPricesRequested();
-    // }, 2000);
-    props.getPricesRequested();
+    // }, 4000);
+    props.getUserRequested();
   }
 
   render() {
@@ -65,10 +66,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   const { removeTransaction } = transactions.creators;
   const { getPricesRequested } = prices.creators;
+  const { getUserRequested } = user.creators;
 
   return bindActionCreators({
     getPricesRequested,
     removeTransaction,
+    getUserRequested,
   }, dispatch);
 }
 

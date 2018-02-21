@@ -2,18 +2,19 @@ const GET_PRICES_REQUESTED = 'GET_PRICES_REQUESTED';
 const GET_PRICES_COMPLETED = 'GET_PRICES_COMPLETED';
 const GET_PRICES_FAILED = 'GET_PRICES_FAILED';
 
-function getPricesRequested() {
-  return (dispatch, getState) => {
-      dispatch({type : GET_PRICES_REQUESTED});
+const getPricesRequested = () => ({
+  type: GET_PRICES_REQUESTED,
+});
 
-      fetch('http://159.65.72.172/prices', {})
-          .then((resp) => resp.json())
-          .then(
-              response => dispatch({type : GET_PRICES_COMPLETED, payload : response}),
-              error => dispatch({type : GET_PRICES_FAILED, error : error})
-          );
-  };
-}
+const getPricesCompleted = prices => ({
+  type: GET_PRICES_COMPLETED,
+  prices,
+});
+
+const getPricesFailed = error => ({
+  type: GET_PRICES_FAILED,
+  error,
+});
 
 export default {
   types: {
@@ -23,6 +24,8 @@ export default {
   },
   creators: {
     getPricesRequested,
+    getPricesCompleted,
+    getPricesFailed,
   },
 };
 

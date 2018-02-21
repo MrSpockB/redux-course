@@ -1,26 +1,37 @@
-1. Change to new branch `thunks-exercise`.
- - If you get stuck use: `git checkout -b thunks-finished origin/thunks-finished`
-2. Setup Redux Thunks
+1. Change to new branch `sagas-exercise`.
+ - If you get stuck use: `git checkout -b sagas-finished origin/sagas-finished`
+2. Setup Redux Sagas
 
- - `npm install redux-thunk --save`
+ - `npm install redux-saga --save`
  - Add it to the store middleware.
 
  ```
- import thunk from 'redux-thunk';
+// src/store/index.js
+
+import createSagaMiddleware from 'redux-saga';
+
+const sagaMiddleware = createSagaMiddleware();
 ...
  const middleware = [
   ...customMiddleware,
-  thunk,
+  sagaMiddleware,
 ];
+...
+// When  you have your saga index, run it here
+sagaMiddleware.run(rootSaga);
 ...
  ```
 
-3. Add actions `getPricesRequested`, `getPricesCompleted`, `getPricesFailed`.
-4. Add reducers for our new actions.
-5. Integrate with UI
- - Convert `TransactionList` to stateful component.
- - Dispatch action `getPricesRequested` inside constructor.
+3. Create `helloWorldSaga` that prints to the console a greeting.
 
-> Note:
-> Use chrome with security flags disabled
-> `open -a Google\ Chrome --args --disable-web-security --user-data-dir`
+4. Create `userSaga` to retrieve data from the user.
+```
+// api/user.js
+loadUser()
+```
+
+5. Create `pricesSaga` to retrieve info about crypto currencies prices.
+```
+// api/crypto.js
+loadPrices()
+```

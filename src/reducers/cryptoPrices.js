@@ -1,24 +1,11 @@
 import prices from '../actions/prices';
 
 const initialState = {
-  BTC: 8500,
-  ETH: 860,
-  LTC: 155,
-  XRP: .98,
+  BTC: 0,
+  ETH: 0,
+  LTC: 0,
+  XRP: 0,
   fetching: false,
-};
-
-// Method just to change object keys to upper case
-const toUpperKeys = item => {
-  for(const key in item){
-      const upper = key.toUpperCase();
-      // check if it already wasn't uppercase
-      if( upper !== key ){
-          item[ upper ] = item[key];
-          delete item[key];
-      }
-  }
-  return item;
 };
 
 const cryptoPricesReducer = (state = initialState, action) => {
@@ -34,7 +21,7 @@ const cryptoPricesReducer = (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        ...toUpperKeys(action.payload.prices),
+        ...action.prices,
       };
     case prices.types.GET_PRICES_FAILED:
       return {

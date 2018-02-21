@@ -1,13 +1,16 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../reducers';
+import rootSaga from '../sagas';
 import customMiddleware from '../middleware';
+
+const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {};
 const enhancers = [];
 const middleware = [
   ...customMiddleware,
-  thunk,
+  sagaMiddleware,
 ];
 
 const composedEnhancers = compose(
@@ -20,5 +23,7 @@ const store = createStore(
   initialState,
   composedEnhancers,
 );
+
+sagaMiddleware.run(rootSaga);
 
 export default store;

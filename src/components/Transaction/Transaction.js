@@ -34,7 +34,7 @@ const Transaction = (props) => {
         ${transaction.amount * transaction.price}
       </SectionContainer>
       <SectionContainer width={'20%'}>
-        {transaction.amount * parseInt(cryptoPrice)}
+        {transaction.amount * parseInt(cryptoPrice, 10)}
       </SectionContainer>
       <SectionContainer width={'10%'}>
         <button onClick={handleDeleteButtonClick}>
