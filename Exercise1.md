@@ -35,3 +35,9 @@ loadUser()
 // api/crypto.js
 loadPrices()
 ```
+
+6. Select data from the state using a saga and display it inside a new component.
+
+7. Create user reducer
+
+8. Display `user.name` on a component

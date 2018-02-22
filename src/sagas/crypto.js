@@ -1,7 +1,11 @@
-import { call, takeEvery, put } from 'redux-saga/effects';
+import { call, takeEvery, put, select } from 'redux-saga/effects';
 import { loadPrices } from '../api/crypto';
 import prices from '../actions/prices';
 
+export function* selectDataSaga() {
+  const data = yield select(({cryptoPrices}) => cryptoPrices.exerciseData.level2);
+  console.log(data);
+}
 
 export function* loadPricesSaga() {
   console.log('[SAGA] loadPricesSaga...');
@@ -15,4 +19,5 @@ export function* loadPricesSaga() {
 
 export default function* cryptoSaga() {
   yield takeEvery(prices.types.GET_PRICES_REQUESTED, loadPricesSaga);
+  yield selectDataSaga();
 }

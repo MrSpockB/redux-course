@@ -9,6 +9,7 @@ class CryptoLabels extends React.Component {
 
     const {
       fetching,
+      exerciseData,
       ...restCryptoPrices,
     } = cryptoPrices;
 
