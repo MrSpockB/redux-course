@@ -6,6 +6,9 @@ const initialState = {
   LTC: 0,
   XRP: 0,
   fetching: false,
+  exerciseData: {
+    level2: 'select me!',
+  },
 };
 
 const cryptoPricesReducer = (state = initialState, action) => {
