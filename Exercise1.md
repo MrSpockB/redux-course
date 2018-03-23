@@ -24,20 +24,23 @@ sagaMiddleware.run(rootSaga);
 
 3. Create `helloWorldSaga` that prints to the console a greeting.
 
-4. Create `userSaga` to retrieve data from the user.
-```
-// api/user.js
-loadUser()
-```
-
-5. Create `pricesSaga` to retrieve info about crypto currencies prices.
+4. Create `pricesSaga` to retrieve info about crypto currencies prices.
 ```
 // api/crypto.js
 loadPrices()
 ```
 
-6. Select data from the state using a saga and display it inside a new component.
+5. Select data from the state using a saga and display it inside a new component.
 
-7. Create user reducer
+6. Create user reducer
 
-8. Display `user.name` on a component
+7. Create `userSaga` to retrieve data from the user.
+```
+// api/user.js
+loadUser()
+```
+
+8. Display `user.name` on a component (Create Identity component, connect it to redux, display name)
+
+> Note:
+> Point 5 to 8 should be coded by the student
